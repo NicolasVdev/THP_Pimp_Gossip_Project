@@ -4,7 +4,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
 
 
-### THP W6 D1
+### THP W6 D4
 
 Learning RoR(Ruby on Rails) with our previous database to show the app in website with html views
 
