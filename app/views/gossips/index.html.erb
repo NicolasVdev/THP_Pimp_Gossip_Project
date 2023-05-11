@@ -26,6 +26,12 @@
           <p>par : <%= link_to gossip.user.first_name, user_path(gossip.user), class: 'highlight' %><br>
              de : <%= link_to gossip.user.city.name, city_path(gossip.user.city), class: 'highlight'%></p>
           <p><%= link_to 'Voir détails', gossip_path(gossip) %></p>
+                        <%if already_exist?(gossip)%>
+                          <%= link_to "♥", gossip_gossip_like_path(gossip_id: gossip.id, id: current_user.id), data: { turbo_method: :delete } %>
+                            <%else%>
+                          <%= link_to "♡", gossip_gossip_likes_url(gossip.id), data: { turbo_method: :post } %>
+                        <%end%>
+                        <%= gossip.gossip_likes.count %>
         </div>
       </div>
     </div>
