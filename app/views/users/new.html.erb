@@ -1,0 +1,43 @@
+<center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="color-title"> <b>Création de compte</b> </h1>
+<br>
+    <%= form_tag('/users', method: :post) do %>
+
+      <%= label_tag 'Prénom' %>
+      <%= text_field_tag 'first_name' %>
+      <br/>
+      <br>
+      <%= label_tag 'Nom' %>
+      <%= text_field_tag 'last_name' %>
+      <br>
+      <br>
+      <%= label_tag 'Age' %>
+      <%= text_field_tag 'age' %>
+      <br>
+      <br>
+      <%= label_tag 'Description' %>
+      <%= text_field_tag 'description' %>
+      <br>
+      <br>
+      <%= label_tag 'Email' %>
+      <%= text_field_tag 'email' %>
+      <br>
+      <br>
+      <%= label_tag 'Mot de passe' %>
+      <%= text_field_tag 'password' %>
+      <br>
+      <br>
+      <%= label_tag 'Confirmation du mot de passe' %>
+      <%= text_field_tag 'password_confirmation' %>
+      <br>
+    <br>
+    <br>
+      <%= submit_tag "S'enregistrer", :class=>"btn btn-dark", data: {turbo:false} %>
+
+      <% end %>
+</center>

@@ -1,6 +1,5 @@
 <center>
-<h1>Bienvenue dans la page de création de potins</h1>
-
+<br>
     <%= form_tag('/gossips', method: :post) do %>
 
       <%= label_tag 'Titre du potin' %></br>
@@ -11,7 +10,7 @@
         </div><%= text_area_tag 'content' %></div>
       <br/> <br/>
 
-      <%= submit_tag "Ajouter un nouveau potin", data: {turbo:false} %>
+      <%= submit_tag "Ajouter un nouveau potin", :class=>"btn btn-dark", data: {turbo:false} %>
 
       <% end %>
 

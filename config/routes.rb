@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :edit, :destroy, :update]
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :create, :new]
   root to: redirect('/gossips')
   resources :cities, only: [:show]
 

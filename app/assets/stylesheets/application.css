@@ -69,3 +69,7 @@ a.highlight:hover {
 .button_to {
   display: inline-flex;
 }
+
+.color-title {
+  color: #e7093d;
+}
