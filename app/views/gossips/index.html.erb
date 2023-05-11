@@ -1,0 +1,35 @@
+<div class="text-center">
+<br>
+<h1><b>Bienvenue sur The Gossip Project !</b></h1>
+<br>
+<h3> Pour créer un nouveau potin, <%= link_to "suivez ce lien", new_gossip_path, class: "linkoff" %>  </h3>
+<br>
+<h2> Voici la liste des potins : </h2>
+<br>
+</div>
+<div class="card-container">
+  <style>
+    .avatar-image {
+      border-radius: 50%;
+    }
+  </style>
+  <% @gossip.reverse_each do |gossip| %>
+    <div class="card">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <% avatar_id = gossip.user.id %>
+            <% avatar_url = "https://i.pravatar.cc/150?u=#{avatar_id}" %>
+            <img src="<%= avatar_url %>" class="avatar-image" height="65" width="65" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <h2><%= gossip.title %></h2>
+          <p>par : <%= link_to gossip.user.first_name, user_path(gossip.user), class: 'highlight' %><br>
+             de : <%= link_to gossip.user.city.name, city_path(gossip.user.city), class: 'highlight'%></p>
+          <p><%= link_to 'Voir détails', gossip_path(gossip) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

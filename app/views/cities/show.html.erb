@@ -1,0 +1,18 @@
+<center>
+<div class="text-center">
+<h1>Ville n°<%=@city.id %></h1>
+
+<p>Nom de la ville : <%= @city.name %></p>
+
+<p>Voici la liste des potins de cette ville :</p>
+<div class="card-container">
+  <% @gossips.each do |gossip| %>
+    <div class="card">
+      <h2><%= gossip.title %></h2>
+      <p>Ecrit par <%= gossip.user.first_name %> <%= gossip.user.last_name %></p>
+      <p><%= gossip.content %></p>
+    </div>
+  <% end %>
+</div>
+</div>
+</center>

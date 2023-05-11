@@ -1,0 +1,15 @@
+<h1> Edition du commentaire</h1>
+
+<%= form_for @comment, url:gossip_comment_url do |f| %>
+
+  <div class="form-group">
+    <label>Contenu du commentaire</label>
+    <%= f.text_field :content, class: 'form-control' %>
+  </div>
+<br>
+  <div class="form-group" data-turbo=false>
+    <button type="submit", class="btn btn-dark">Modifier le commentaire</button>
+  </div>
+
+  <% end %>
+  <%= button_to "Supprimer", gossip_comment_path, :class=>"btn btn-dark", form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>

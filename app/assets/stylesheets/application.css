@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background-image: url(https://img.phonandroid.com/2015/06/gossip-app.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+nav.navbar {
+  width: 100%;
+}
+
+.card-wrapper {
+  margin-inline: max(0px, ((100% - 260px) / 2));
+}
+
+
+.card {
+  position: sticky;
+  top: 0;
+  background: #DDDDDD;
+  padding: 20px;
+  box-shadow: 0 -0.5rem 1rem rgba(0 0 0 / 0.15);
+  border-radius: 4px;
+  width: 300px;
+  margin-right: 0;
+  margin-bottom: 0;
+  color: black;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  grid-auto-flow: dense;
+  justify-content: center;
+  margin-inline: max(0px, ((100% - 260px) / 2))
+}
+
+.card-container > .card:nth-child(3n + 1) {
+  margin-right: auto;
+}
+
+.card-container > .card:nth-child(-n + 3) {
+  margin-bottom: auto;
+}
+
+.card-container > .card:nth-child(n + 19) {
+  margin-top: auto;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black
+}
+
+a.highlight {
+  text-decoration: underline;
+}
+
+a.highlight:hover {
+  color: #931C32;
+}
+
+.form-control{
+  max-width: 500px
+}
+
+.button_to {
+  display: inline-flex;
+}
