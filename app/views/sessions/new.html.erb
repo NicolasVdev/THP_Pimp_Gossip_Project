@@ -1,0 +1,16 @@
+<center>
+<br>
+<%= form_tag('/sessions', method: :post) do %>
+
+  <%= label_tag 'Email' %></br>
+    <div><%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'email@example.com' %></div>
+  <br/>
+
+  <%= label_tag 'Mot de passe' %></br>
+    </div><%= password_field_tag 'password', nil, class: 'form-control', placeholder: 'mot de passe' %></div>
+  <br/> <br/>
+
+  <%= submit_tag "Se connecter", :class=>"btn btn-dark", data: {turbo:false} %>
+
+  <% end %>
+</center>

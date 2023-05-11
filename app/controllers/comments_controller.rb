@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user, only: [:new, :create]
 
   def create
-    @comment = Comment.new(content: params['content'], user_id: User.all.sample.id, gossip_id: params[:gossip_id] )
+    @comment = Comment.new(content: params['content'], user: current_user, gossip_id: params[:gossip_id] )
      @comment.save
       flash[:notice] = 'ton commentaire a bien été ajouté'
       redirect_to gossip_path(params[:gossip_id])
@@ -26,6 +27,15 @@ class CommentsController < ApplicationController
     @comment.destroy
       flash[:notice] = 'Le commentaire a bien été supprimé'
       redirect_to @path
+  end
+
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:alert] = "Merci de vous connecter !"
+      redirect_to new_session_path
+    end
   end
 
 end

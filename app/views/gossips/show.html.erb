@@ -1,11 +1,15 @@
     <center>
-    <h1>Potin n°<%=@gossip.id %></h1>
-    <p>Auteur : <%=@gossip.user.first_name%> <%=@gossip.user.last_name%> qui nous vient de : <%= @gossip.user.city.name %> <br>(tu veux en savoir plus sur l'auteur ? clique <%= link_to 'ici', user_path(@gossip.user) %>)</p>
+    <br>
+    <p>Auteur : <%=@gossip.user.first_name%> <%=@gossip.user.last_name%><br>
+    (tu veux en savoir plus sur l'auteur ? clique <%= link_to 'ici', user_path(@gossip.user) %>)</p>
+    <p>Ville : <%= @gossip.user.city.name %></p>
     <p>Title : <%= @gossip.title %></p>
     <p>Content : <%= @gossip.content %></p>
     <p>Date de création : <%= @gossip.created_at.strftime('%d/%m/%Y') %></p>
+    <% if @gossip.user == current_user %>
     <%= button_to "Editer ce potin", edit_gossip_path, :class=>"btn btn-dark", method: :get %>
     <%= button_to "Supprimer ce potin", gossip_path(@gossip.id), :class=>"btn btn-dark", form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+    <% end %>
     <br>
     <br>
     <%= form_tag(gossip_comments_path(@gossip), method: :post) do %>
@@ -16,7 +20,9 @@
         <% end %>
     <br>
         <% @gossip.comments.reverse_each do |comment| %>
-            <div><%= comment.user.first_name %> <%= comment.user.last_name %> - <%= comment.content %> <%= button_to "Editer", edit_gossip_comment_path(@gossip, comment.id), :class=>"btn btn-dark", method: :get %> </div>
+            <div><%= comment.user.first_name %> <%= comment.user.last_name %> - <%= comment.content %>
+            <% if comment.user == current_user %> <%= button_to "Editer", edit_gossip_comment_path(@gossip, comment.id), :class=>"btn btn-dark", method: :get %> </div>
+            <% end %>
           <% end %>
     </center>
 

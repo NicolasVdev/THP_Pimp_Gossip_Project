@@ -5,6 +5,6 @@
 <p> Description : <%= @user.description %></p>
 <p> E-mail de contact : <%= @user.email %></p>
 <p> Age : <%= @user.age %></p>
-<p> Ville : <%= link_to @user.city.name, city_path, class: 'highlight' %></p>
+<p> Ville : <%= link_to @user.city.name, city_path(@user.city), class: 'highlight' %></p>
 <p> Date de création du compte : <%= @user.created_at %></p>
 </center>
